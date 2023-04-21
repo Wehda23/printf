@@ -1,6 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int _putchar.c(char *s)
+#include <stdio.h>
+#include <stdlib.h>
+
+int _putchar(char c);
+void print_int(int number);
+int _printf(const char *format, ...);
 
 #endif
