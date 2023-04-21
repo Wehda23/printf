@@ -26,35 +26,32 @@ int _printf(const char *format, ...)
                 case 'd':
                 {
                     int value = va_arg(ap, int);
-
-                    if (value < 0 )
-                    {
-                        value *= -1;
-                        _putchar(45);
-                        length += 1;
-                    }
-
-                    if (value  != 0)
-                    {
-                        length += print_d(value);
-                    }
-                    else
-                    {
-                        _putchar('0');
-                        length += 1;
-                    }
+                    length += print_d(value);
                     break;
                 }
-
+                case 'i':
+                {
+                    int value = va_arg(ap, int);
+                    length += print_i(value);
+                    break;
+                }
                 case 'c':
                 {
-
+                    char character = va_arg(ap, int);
+                    _putchar(character);
+                    length += 1;
                     break;
                 }
-
                 case 's':
                 {
-
+                    char *str = va_arg(ap, char *);
+                    length += print_s(str);
+                    break;
+                }
+                case '%':
+                {
+                    _putchar('%');
+                    length += 1;
                     break;
                 }
             }
@@ -64,7 +61,7 @@ int _printf(const char *format, ...)
             length += 1;
             _putchar(*format);
         }
-
+        
         format++;
     }
     va_end(ap);
