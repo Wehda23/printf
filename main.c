@@ -1,14 +1,15 @@
-#include <limits.h>
 #include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
+
+
 int main(void)
 {
-    _printf("Hello Waheed sorry u alone :( %d", -10000);
+
+    int len;
+
+    len = _printf("Waheed is smoll :( %d\n", 543);
+
+    printf("%d", len);
     
     return (0);
 }
