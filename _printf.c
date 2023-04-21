@@ -31,18 +31,12 @@ int _printf(const char *format, ...)
                     {
                         value *= -1;
                         _putchar(45);
+                        length += 1;
                     }
 
                     if (value  != 0)
                     {
-                        print_int(value);
-
-                        while (value != 0)
-                        {
-                            length += 1;
-                            value /= 10;
-                        }
-                        
+                        length += print_d(value);
                     }
                     else
                     {
