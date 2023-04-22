@@ -14,6 +14,6 @@ int main(void)
     _printf("%%c aheed\n",'W');
     _printf("%s Khaled\n","Waheed");
     _printf("This is Hexadecimal %i\n", 0x7B);
-    _printf("This is octadecimal %i\n", 0123);
+    _printf("This is octadecimal %i\n", 1234);
     return (0);
 }
