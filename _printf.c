@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-
 
 /**
  * _printf - is a function that prints string
@@ -16,45 +14,13 @@ int _printf(const char *format, ...)
     va_start(ap, format);
     while (*format != '\0')
     {
-
-        
         if (*format == '%')
         {
             format++;
-            switch(*format)
-            {
-                case 'd':
-                {
-                    int value = va_arg(ap, int);
-                    length += print_d(value);
-                    break;
-                }
-                case 'i':
-                {
-                    int value = va_arg(ap, int);
-                    length += print_i(value);
-                    break;
-                }
-                case 'c':
-                {
-                    char character = va_arg(ap, int);
-                    _putchar(character);
-                    length += 1;
-                    break;
-                }
-                case 's':
-                {
-                    char *str = va_arg(ap, char *);
-                    length += print_s(str);
-                    break;
-                }
-                case '%':
-                {
-                    _putchar('%');
-                    length += 1;
-                    break;
-                }
-            }
+            if (*format == 'c' || *format == 's' || *format == 'r' || *format == '%' || *format == 'R')
+                    length += string_handler(format, ap);
+            else if (*format == 'd' || *format == 'f' || *format == 'b' || *format == 'i')
+                    length += digits_handler(format, ap);
         }
         else
         {
