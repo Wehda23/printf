@@ -302,9 +302,11 @@ int print_o(unsigned int value)
         length++;
         index++;
     }
+    index--;
+    length--;
 
     while (index > 0)
-    {
+    {   
         _putchar(buffer[index--]);
     }
 
@@ -320,8 +322,9 @@ int print_o(unsigned int value)
  */
 int print_hexa(unsigned int value, char c)
 {
-    unsigned int length = 0, index = 0, module;
+    unsigned int length = 0, module;
     char buffer[32] , alpha = c == 'x'? 'a' : 'A';
+    int index = 0;
 
     if (!value)
         return (0);
@@ -334,13 +337,13 @@ int print_hexa(unsigned int value, char c)
         length++;
         index++;
     }
-
-    while (index > 0)
+    length--;
+    index--;
+    while (index >= 0)
     {
         _putchar(buffer[index--]);
     }
 
-    _putchar(buffer[0]);
 
     return (length + 1);
 }

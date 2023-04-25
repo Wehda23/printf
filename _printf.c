@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
     int length = 0;
 
     va_start(ap, format);
+    
+    
     while (*format != '\0')
     {
         if (*format == '%')
@@ -31,8 +33,8 @@ int _printf(const char *format, ...)
         }
         
         format++;
-    }
+    } 
+   
     va_end(ap);
-
     return (length);
 }

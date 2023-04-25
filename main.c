@@ -1,37 +1,52 @@
+#include <limits.h>
+#include <stdio.h>
 #include "main.h"
 
-
-
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-
     int len;
-    unsigned int l = 1230;
+    int len2;
+    unsigned int ui;
 
-    len = _printf("Waheed is age: %d\n",1000);
-
-    printf(" The value is %d\n", len);
-    _printf(" The value is %d\n", len);
-    _printf("%caheed\n", 'W');
-    _printf("%%c aheed\n",'W');
-    _printf("%s Khaled\n","Waheed");
-    _printf("This is Hexadecimal %i\n", 0x7B);
-    _printf("This is octadecimal %i\n", 0123);
-    _printf("This a float printed number %f\n", 9.1231);
-    _printf("This a binary printed number %b\n", 98);
-    _printf("Print the followin string in Reverse %r\n", "Reverse string");
-    len = _printf("%R", "Hello, World!\n");
-    _printf(" The value is %d\n", len);
-    _printf(" This is unsigned integer print: %u\n", l);
-    len = _printf(" This is unsigned integer print hexadecimal: %o\n", (unsigned int) 1568547);
-    _printf(" The value is %d\n", len);
-    _printf(" The value is %x\n", 1222);
-    _printf(" The value is %X\n", 1222);
-
-
-
-
-
-
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
+    ui = (unsigned int)INT_MAX + 1024;
+    _printf("Length:[%d, %i]\n", NULL, NULL);
+    printf("Length:[%d, %i]\n", NULL, NULL);
+    len = _printf("Negative:[%d]\n", -762534);
+    len2 = printf("Negative:[%d]\n", -762534);
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    len = _printf("Unsigned:[%u]\n", ui);
+    len2 = printf("Unsigned:[%u]\n", ui);
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    len = _printf("Unsigned octal:[%o]\n", ui);
+    len2 = printf("Unsigned octal:[%o]\n", ui);
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    len = _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    len2 = printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    len = _printf("Character:[%c]\n", 'H');
+    len2 = printf("Character:[%c]\n", 'H');
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    len = _printf("String:[%s]\n", "I am a string !");
+    len2 = printf("String:[%s]\n", "I am a string !");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    _printf("Unknown:[%r]\n","Reverse");
+    
     return (0);
 }

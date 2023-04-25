@@ -32,7 +32,8 @@ int string_handler(const char *p, va_list ap)
         case 'r':
         {
             char *str = va_arg(ap, char *);
-            length += print_r(str);
+            if (*str)
+                length += print_r(str);
             break;
         }
         case 'R':

@@ -20,6 +20,25 @@ int print_s(char *s)
     return (length);
 }
 
+/**
+ * print_cs - is a function used to print a string.
+ * @s: Pointer to a string character. 
+ * Return: Returns the length of string as an int.
+ */
+int print_cs(const char *s)
+{
+    int length = 0;
+
+    if (s)
+    {
+        for (; *s ; s++)
+        {
+            _putchar(*s);
+            length++;
+        }
+    }
+    return (length);
+}
 
 /**
  * print_r - prints a string in reverse.

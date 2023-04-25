@@ -12,6 +12,7 @@ int print_u(unsigned int value);
 int print_o(unsigned int value);
 int print_hexa(unsigned int value, char c);
 int print_s(char *s);
+int print_cs(const char *s);
 int print_i(int num);
 int print_f(double value, int decimals, int force);
 int print_b(unsigned int value);
