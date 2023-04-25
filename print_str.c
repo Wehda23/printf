@@ -28,18 +28,22 @@ int print_s(char *s)
  */
 int print_r(char *c)
 {
-    int index = 0, length;
+    int index = 0, length = 0;
 
-    while (c[index++]);
-
-    index -= 1;
-
-    length = index;
-    
-    while (index >= 0)
+    if (c)
     {
-        _putchar(c[index--]);
+        while (c[index++]);
+
+        index -= 1;
+
+        length = index;
+        
+        while (index >= 0)
+        {
+            _putchar(c[index--]);
+        }
     }
+    
 
     return (length);
 }
@@ -70,12 +74,15 @@ int print_R(char *c)
 {
     int length = 0;
 
-    while (*c != '\0') {
+    if (c)
+    {
+        while (*c != '\0') 
+        {
         _putchar(rot13(*c));
         c++;
         length++;
+        }
     }
-
 
     return (length);
 }
