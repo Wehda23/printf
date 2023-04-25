@@ -8,10 +8,13 @@
 
 int _putchar(char c);
 int print_d(int value);
+int print_u(unsigned int value);
+int print_o(unsigned int value);
+int print_hexa(unsigned int value, char c);
 int print_s(char *s);
 int print_i(int num);
 int print_f(double value, int decimals, int force);
-int print_b(int value);
+int print_b(unsigned int value);
 int print_r(char *c);
 int print_R(char *c);
 int string_handler(const char *p, va_list ap);

@@ -19,7 +19,9 @@ int _printf(const char *format, ...)
             format++;
             if (*format == 'c' || *format == 's' || *format == 'r' || *format == '%' || *format == 'R')
                     length += string_handler(format, ap);
-            else if (*format == 'd' || *format == 'f' || *format == 'b' || *format == 'i')
+            else if (*format == 'd' || *format == 'f' || *format == 'b' || *format == 'i' )
+                    length += digits_handler(format, ap);
+            else if (*format == 'o' || *format == 'x' || *format == 'X' || *format == 'u')
                     length += digits_handler(format, ap);
         }
         else

@@ -22,6 +22,30 @@ int digits_handler(const char *p, va_list ap)
             length += print_d(value);
             break;
         }
+        case 'u':
+        {
+            int value = va_arg(ap, unsigned int);
+            length += print_u(value);
+            break;
+        }
+        case 'o':
+        {
+            int value = va_arg(ap, unsigned int);
+            length += print_o(value);
+            break;
+        }
+        case 'x':
+        {
+            int value = va_arg(ap, unsigned int);
+            length += print_hexa(value, 'x');
+            break;
+        }
+        case 'X':
+        {
+            int value = va_arg(ap, unsigned int);
+            length += print_hexa(value, 'X');
+            break;
+        }
         case 'i':
         {
             int value = va_arg(ap, int);

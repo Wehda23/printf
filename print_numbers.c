@@ -25,6 +25,9 @@ int print_d(int value)
 {
     int number = value, length = 0;
 
+    if (!value)
+        return (length);
+
     if ( number < 0 )
     {
         number *= -1;
@@ -32,22 +35,74 @@ int print_d(int value)
         length += 1;
     }
 
-    if (number  != 0)
+    if (number)
     {
-        print_int(number);
-        
-        while (number != 0)
+        if (number  != 0)
         {
+            print_int(number);
+            
+            while (number != 0)
+            {
+                length += 1;
+                number /= 10;
+            }
+        }
+        else
+        {
+            _putchar('0');
             length += 1;
-            number /= 10;
         }
     }
-    else
+       
+    return (length);
+}
+
+
+
+/**
+ * print_uint - print u sign
+ * @number: integer input.
+ * Return: Nothing.
+ */
+void print_uint(unsigned int number)
+{
+    char this_value = number % 10 + '0';
+
+    if (number > 0)
     {
-        _putchar('0');
-        length += 1;
+        print_int(number / 10);
+        putchar(this_value);
     }
-    
+}
+
+/**
+ * print_u - prints an integer %u.
+ * @value: unsigned integer input.
+ * Return: length of the digits as int.
+ */
+int print_u(unsigned int value)
+{
+    unsigned int number = value, length = 0;
+
+
+    if (number)
+    {
+        if (number  != 0)
+        {
+            print_uint(number);
+            
+            while (number != 0)
+            {
+                length += 1;
+                number /= 10;
+            }
+        }
+        else
+        {
+            _putchar('0');
+            length += 1;
+        }
+    }
     
     return (length);
 }
@@ -65,6 +120,9 @@ int print_i(int num)
     char buffer[32];
     int i = 0;
     int is_negative = 0;
+
+    if (!num)
+        return (length);
 
     if (num == 0) {
         putchar('0');
@@ -117,6 +175,9 @@ int print_decimal(double value, int decimals, int force)
     int num, loop, length = 0;
     double number = value;
 
+    if (!value)
+        return (length);
+
     _putchar('.');
     length += 1;
 
@@ -148,8 +209,8 @@ int print_f(double value, int decimals, int force)
 
     integers = value;
 
-    if (!number)
-        return (0);
+    if (!value)
+        return (length);
 
     if (number < 0)
     {
@@ -175,7 +236,7 @@ int print_f(double value, int decimals, int force)
  * @value: integer input.
  * Return: Void nothing.  
  */
-void binary(int value)
+void binary(unsigned int value)
 {
     char bi;
     if (value && value > 0)
@@ -195,7 +256,7 @@ void binary(int value)
  * @value: integer input. 
  * Return: The length of the printed binary numbers. 
  */
-int print_b(int value)
+int print_b(unsigned int value)
 {   
     int length = 0, number;
 
@@ -216,3 +277,72 @@ int print_b(int value)
 
     return (length);
 }
+
+
+
+
+/**
+ * print_o - converts a unsigned int to a octadecimal.
+ * @value: Unsigned int input. 
+ * Return: length of printed value.
+ */
+int print_o(unsigned int value)
+{
+    unsigned int length = 0, index = 0, module;
+    char buffer[32];
+
+    if (!value)
+        return (0);
+
+    while (value > 0)
+    {   
+        module = value % 8;
+        buffer[index] = module + '0';
+        value /= 8;
+        length++;
+        index++;
+    }
+
+    while (index > 0)
+    {
+        _putchar(buffer[index--]);
+    }
+
+    _putchar(buffer[0]);
+
+    return (length + 1);
+}
+
+/**
+ * print_hexa - converts a unsigned int to a hexadecimal.
+ * @value: Unsigned int input. 
+ * Return: length of printed value.
+ */
+int print_hexa(unsigned int value, char c)
+{
+    unsigned int length = 0, index = 0, module;
+    char buffer[32] , alpha = c == 'x'? 'a' : 'A';
+
+    if (!value)
+        return (0);
+
+    while (value > 0)
+    {   
+        module = value % 16;
+        buffer[index] = module < 10 ? module + '0' : (module - 10) + alpha;
+        value /= 16;
+        length++;
+        index++;
+    }
+
+    while (index > 0)
+    {
+        _putchar(buffer[index--]);
+    }
+
+    _putchar(buffer[0]);
+
+    return (length + 1);
+}
+
+

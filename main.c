@@ -6,6 +6,7 @@ int main(void)
 {
 
     int len;
+    unsigned int l = 1230;
 
     len = _printf("Waheed is age: %d\n",1000);
 
@@ -21,6 +22,13 @@ int main(void)
     _printf("Print the followin string in Reverse %r\n", "Reverse string");
     len = _printf("%R", "Hello, World!\n");
     _printf(" The value is %d\n", len);
+    _printf(" This is unsigned integer print: %u\n", l);
+    len = _printf(" This is unsigned integer print hexadecimal: %o\n", (unsigned int) 1568547);
+    _printf(" The value is %d\n", len);
+    _printf(" The value is %x\n", 1222);
+    _printf(" The value is %X\n", 1222);
+
+
 
 
 
